@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='timer.js') }}"></script>
+</head>
+<body>
+    <div class="quiz-container">
+        {% if game_over %}
+            <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
+            <p>GAME OVER</p>
+            <form action="/restart" method="post">
+                <input type="submit" value="Restart Game">
+            </form>
+        {% else %}
+            <h1>{{ question['question'] }}</h1>
+            <p>Time left: <span id="timer">15</span> seconds</p>
+            <form id="quiz-form" action="/answer" method="post">
+                <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
+                <input type="hidden" name="correct_answer_text" value="{{ question['options'][question['answer']-1] }}">
+                {% for i, option in enumerate(question['options'], 1) %}
+                    <label>
+                        <input type="radio" name="option" value="{{ i }}"> {{ option }}
+                    </label><br>
+                {% endfor %}
+                <input type="submit" value="Submit">
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

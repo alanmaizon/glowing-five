@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template
 import random as rn
 
 app = Flask(__name__)
@@ -37,57 +37,15 @@ def start_game():
 @app.route("/question")
 def ask_question():
     if game_state["correct_count"] >= 5:
-        return f"""
-        <h1>You've won in round {game_state['round']}</h1>
-        <p>GAME OVER</p>
-        <form action="/restart" method="post">
-            <input type="submit" value="Restart Game">
-        </form>
-        """
+        return render_template("base.html", game_over=True, won=True, round=game_state['round'])
     if game_state["incorrect_count"] >= 3:
-        return f"""
-        <h1>You've lost in round {game_state['round']}</h1>
-        <p>GAME OVER</p>
-        <form action="/restart" method="post">
-            <input type="submit" value="Restart Game">
-        </form>
-        """
-    
+        return render_template("base.html", game_over=True, won=False, round=game_state['round'])
+
     question = rn.choice(questions)
     game_state["round"] += 1
-    
-    # Convert the options to HTML form inputs
-    options_html = ''.join(
-    [f'<input type="radio" name="option" value="{i}"> {option}<br>' for i, option in enumerate(question['options'], 1)]
-)
 
-
-    # Render the question and options with a timer
-    html = f"""
-    <h1>{question['question']}</h1>
-    <p>Time left: <span id="timer">15</span> seconds</p>
-    <form id="quiz-form" action="/answer" method="post">
-        <input type="hidden" name="correct_answer" value="{question['answer']}">
-        <input type="hidden" name="correct_answer_text" value="{question['options'][question['answer']-1]}">
-        {options_html}
-        <input type="submit" value="Submit">
-    </form>
-    <script>
-        // Timer function
-        var timeLeft = 15;
-        var timerId = setInterval(function() {
-            if (timeLeft <= 0) {
-                clearInterval(timerId);
-                document.getElementById("quiz-form").submit(); // Auto-submit the form when time runs out
-            } else {
-                document.getElementById("timer").innerHTML = timeLeft;
-            }
-            timeLeft -= 1;
-        }, 1000);
-    </script>
-    """
-    return render_template_string(html)
-
+    # Pass the question, round, and enumerate to the template
+    return render_template("base.html", game_over=False, question=question, round=game_state['round'], enumerate=enumerate)
 
 @app.route("/answer", methods=["POST"])
 def answer_question():
@@ -96,7 +54,6 @@ def answer_question():
     correct_answer_text = request.form["correct_answer_text"]
     
     if selected_option is None:
-        # No option was selected, count as incorrect
         game_state["incorrect_count"] += 1
         return f"<h2>Time's up! The correct answer was '{correct_answer_text}'</h2>{ask_question()}"
     
@@ -109,10 +66,8 @@ def answer_question():
         game_state["incorrect_count"] += 1
         return f"<h2>Incorrect! The correct answer was '{correct_answer_text}'</h2>{ask_question()}"
 
-
 @app.route("/restart", methods=["POST"])
 def restart_game():
-    # Restart the game by resetting the game state and redirecting to the start
     game_state["correct_count"] = 0
     game_state["incorrect_count"] = 0
     game_state["round"] = 0
