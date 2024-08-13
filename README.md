@@ -20,7 +20,8 @@ The game selects a random question from the loaded list and displays it to the p
 The player submits their selected answer via a form. The game then checks if the answer is correct or not.
 If correct, the player's correct answer count increases by 1.
 If incorrect, the incorrect answer count increases by 1.
-Winning and Losing Conditions:
+
+## Winning and Losing Conditions:
 
 ### Winning:
 The player wins if they answer 5 questions correctly before accumulating 3 incorrect answers.
