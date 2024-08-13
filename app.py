@@ -72,6 +72,19 @@ def ask_question():
         {options_html}
         <input type="submit" value="Submit">
     </form>
+    <script>
+        // Timer function
+        var timeLeft = 15;
+        var timerId = setInterval(function() {
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+                document.getElementById("quiz-form").submit(); // Auto-submit the form when time runs out
+            } else {
+                document.getElementById("timer").innerHTML = timeLeft;
+            }
+            timeLeft -= 1;
+        }, 1000);
+    </script>
     """
     return render_template_string(html)
 
