@@ -23,11 +23,9 @@ If incorrect, the incorrect answer count increases by 1.
 
 ## Winning and Losing Conditions:
 
-### Winning:
 The player wins if they answer 5 questions correctly before accumulating 3 incorrect answers.
 A message is displayed indicating that the player has won, along with the round number in which the game was won.
 
-### Losing:
 The player loses if they reach 3 incorrect answers.
 A message is displayed indicating that the player has lost, along with the round number in which the game was lost.
 
