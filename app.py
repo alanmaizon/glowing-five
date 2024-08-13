@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 # Load questions from the CSV file
 def load_questions(file_name):
+    questions = []
     with open(file_name, "r") as f:
-        questions = []
-        for line in f.readlines():
-            reg = line.replace("\n", "").split(";")
+        for line in f:
+            reg = line.strip().split(";")
             question = {
                 "question": reg[0],
                 "options": reg[1:5],
@@ -16,6 +16,7 @@ def load_questions(file_name):
             }
             questions.append(question)
     return questions
+
 
 questions = load_questions("questions.csv")
 
@@ -56,9 +57,10 @@ def ask_question():
     game_state["round"] += 1
     
     # Convert the options to HTML form inputs
-    options_html = ""
-    for i, option in enumerate(question['options'], 1):
-        options_html += f'<input type="radio" name="option" value="{i}"> {option}<br>'
+    options_html = ''.join(
+    [f'<input type="radio" name="option" value="{i}"> {option}<br>' for i, option in enumerate(question['options'], 1)]
+)
+
 
     # Render the question and options with a timer
     html = f"""
@@ -83,16 +85,16 @@ def answer_question():
     if selected_option is None:
         # No option was selected, count as incorrect
         game_state["incorrect_count"] += 1
-        return f"<h2>Time's up! The correct answer was '{correct_answer_text}'</h2>" + ask_question()
+        return f"<h2>Time's up! The correct answer was '{correct_answer_text}'</h2>{ask_question()}"
     
     selected_option = int(selected_option)
     
     if selected_option == correct_answer:
         game_state["correct_count"] += 1
-        return "<h2>Correct!</h2>" + ask_question()
+        return f"<h2>Correct!</h2>{ask_question()}"
     else:
         game_state["incorrect_count"] += 1
-        return f"<h2>Incorrect! The correct answer was '{correct_answer_text}'</h2>" + ask_question()
+        return f"<h2>Incorrect! The correct answer was '{correct_answer_text}'</h2>{ask_question()}"
 
 
 @app.route("/restart", methods=["POST"])
