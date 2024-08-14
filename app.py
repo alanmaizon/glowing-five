@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 # Load questions from the CSV file
 def load_questions(file_name):
-    questions = []
     with open(file_name, "r") as f:
-        for line in f:
-            reg = line.strip().split(";")
+        questions = []
+        for line in f.readlines():
+            reg = line.replace("\n", "").split(";")
             question = {
                 "question": reg[0],
                 "options": reg[1:5],
@@ -16,7 +16,6 @@ def load_questions(file_name):
             }
             questions.append(question)
     return questions
-
 
 questions = load_questions("questions.csv")
 
@@ -35,36 +34,42 @@ def start_game():
     return ask_question()
 
 @app.route("/question")
-def ask_question():
+def ask_question(message=None, message_type=None):
+    # Check for win condition
     if game_state["correct_count"] >= 5:
-        return render_template("base.html", game_over=True, won=True, round=game_state['round'])
+        return render_template("base.html", message="You've won!", message_type="correct", game_over=True, won=True, round=game_state['round'])
+    
+    # Check for lose condition
     if game_state["incorrect_count"] >= 3:
-        return render_template("base.html", game_over=True, won=False, round=game_state['round'])
+        return render_template("base.html", message="You've lost!", message_type="incorrect", game_over=True, won=False, round=game_state['round'])
 
+    # If game is not over, continue with the next question
     question = rn.choice(questions)
     game_state["round"] += 1
 
-    # Pass the question, round, and enumerate to the template
-    return render_template("base.html", game_over=False, question=question, round=game_state['round'], enumerate=enumerate)
+    return render_template("base.html", message=message, message_type=message_type, game_over=False, question=question, round=game_state['round'], enumerate=enumerate)
 
 @app.route("/answer", methods=["POST"])
 def answer_question():
     selected_option = request.form.get("option")
     correct_answer = int(request.form["correct_answer"])
     correct_answer_text = request.form["correct_answer_text"]
-    
+
+    # No selection or timeout
     if selected_option is None:
         game_state["incorrect_count"] += 1
-        return f"<h2>Time's up! The correct answer was '{correct_answer_text}'</h2>{ask_question()}"
-    
+        return ask_question(message=f"Time's up! The correct answer was '{correct_answer_text}'", message_type="timeout")
+
     selected_option = int(selected_option)
-    
+
+    # Correct answer
     if selected_option == correct_answer:
         game_state["correct_count"] += 1
-        return f"<h2>Correct!</h2>{ask_question()}"
+        return ask_question(message="Correct!", message_type="correct")
     else:
+        # Incorrect answer
         game_state["incorrect_count"] += 1
-        return f"<h2>Incorrect! The correct answer was '{correct_answer_text}'</h2>{ask_question()}"
+        return ask_question(message=f"Incorrect! The correct answer was '{correct_answer_text}'", message_type="incorrect")
 
 @app.route("/restart", methods=["POST"])
 def restart_game():

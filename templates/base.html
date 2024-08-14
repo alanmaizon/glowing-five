@@ -8,6 +8,9 @@
     <script src="{{ url_for('static', filename='timer.js') }}"></script>
 </head>
 <body>
+    {% if message %}
+        <h2 class="message {{ message_type }}">{{ message }}</h2>
+    {% endif %}
     <div class="quiz-container">
         {% if game_over %}
             <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
