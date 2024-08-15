@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Five</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="name-input-container">
+        <h1>Glowing 5</h1>
+        <form action="/" method="post">
+            <input type="text" name="user_name" required placeholder="Enter Your Name to Start">
+            <input type="submit" value="Start Game">
+        </form>
+    </div>
+</body>
+</html>

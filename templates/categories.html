@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Category</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="category-selection-container">
+        <h1>Select a Category</h1>
+        <form action="/select_category" method="post">
+            <input type="radio" name="category" value="Entertainment" id="entertainment" required>
+            <label for="entertainment">Entertainment</label><br>
+            <input type="radio" name="category" value="Geography" id="geography" required>
+            <label for="geography">Geography</label><br>
+            <input type="radio" name="category" value="Comedy" id="comedy" required>
+            <label for="comedy">Comedy</label><br>
+            <input type="radio" name="category" value="Sports" id="sports" required>
+            <label for="sports">Sports</label><br>
+            <input type="submit" value="Start Game">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="leaderboard-container">
+        <h1>Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Score</th>
+                    <th>Rounds</th>
+                    <th>Skips</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rank, entry in enumerate(leaderboard, 1) %}
+                    <tr>
+                        <td>{{ rank }}</td>
+                        <td>{{ entry['user_name'] }}</td>
+                        <td>{{ entry['category'] }}</td>
+                        <td>{{ entry['score'] }}</td>
+                        <td>{{ entry['round'] }}</td>
+                        <td>{{ entry['skips'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form action="/" method="get">
+            <input type="submit" value="Start New Game">
+        </form>
+    </div>
+</body>
+</html>

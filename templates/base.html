@@ -8,10 +8,10 @@
     <script src="{{ url_for('static', filename='timer.js') }}"></script>
 </head>
 <body>
-    {% if message %}
-        <h2 class="message {{ message_type }}">{{ message }}</h2>
-    {% endif %}
-    <div class="quiz-container">
+    <div id="quiz-container" class="quiz-container {{ 'shake' if message_type == 'incorrect' else '' }}">
+        {% if message %}
+            <h2 class="message {{ message_type }}">{{ message }}</h2>
+        {% endif %}
         {% if game_over %}
             <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
             <p>GAME OVER</p>
@@ -19,7 +19,7 @@
                 <input type="submit" value="Restart Game">
             </form>
         {% else %}
-            <h1>{{ question['question'] }}</h1>
+            <h2>{{ question['question'] }}</h2>
             <p>Time left: <span id="timer">15</span> seconds</p>
             <form id="quiz-form" action="/answer" method="post">
                 <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
@@ -30,6 +30,9 @@
                     </label><br>
                 {% endfor %}
                 <input type="submit" value="Submit">
+            </form>
+            <form action="/skip" method="post">
+                <input type="submit" value="Skip Question" class="skip-button">
             </form>
         {% endif %}
     </div>
