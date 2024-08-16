@@ -3,7 +3,12 @@
     src: url('nasalization-rg.otf'); /* Locate the .ttf file within your directory*/
 }
 
-/* Reset some basic styles */
+body, h1, p, form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-image: url(background.jpg)
 }
@@ -11,12 +16,6 @@ body {
 p {
     margin: 20px;
     padding: 20px;
-}
-
-form {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 h1 {
@@ -186,29 +185,55 @@ body {
     background-color: #73b2c1;
 }
 
-/* Name input container styling */
-.name-input-container {
+
+/* Image container to position relative elements */
+.image-container {
+    width: 100%;
+    margin: 0 auto; /* Center the container */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
 }
 
-.name-input-container h1 {
-    margin-bottom: 20px;
+.image-container img {
+    width: 40%;
+    display: block;
+    justify-content: center;
+}
+
+/* Overlay title styling */
+.overlay-title {
+    position: absolute;
+    top:auto;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Ensure it's above the image */
+}
+
+/* Name input container styling */
+.name-input-container {
+    position: absolute;
+    top: 25%; /* Adjust to control overlap with the title */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure it's above the title and image */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .name-input-container input[type="text"] {
-    align-items: center;
     padding: 10px;
-    margin-bottom: 20px;
-    width: fit-content;
+    margin: 10px;
+    width: 80%;
     border-radius: 5px;
     border: 1px solid #ddd;
 }
@@ -216,18 +241,16 @@ body {
 .name-input-container input[type="submit"] {
     padding: 10px 20px;
     border: none;
-    background-color: #0d4d8a;
+    background-color: #007bff;
     color: white;
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
-    text-align: center;
-    width: fit-content;
 }
 
 .name-input-container input[type="submit"]:hover {
-    background-color: #73b2c1;
+    background-color: #0056b3;
 }
 
 /* Category selection container styling */
@@ -300,4 +323,22 @@ body {
 
 .error-container input[type="submit"]:hover {
     background-color: #75b1cd;
+}
+
+
+@media (max-width: 968px) {
+
+    .name-input-container, .image-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+    .image-container img {
+        width: 100%;
+}
 }

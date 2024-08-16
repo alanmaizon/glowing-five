@@ -39,13 +39,16 @@ def load_questions(file_name):
         print(f"Warning: No questions loaded from {file_name}")
 
     return questions
+
+# Game state and user information
 game_state = {
     "correct_count": 0,
     "incorrect_count": 0,
     "round": 0,
     "skips": 0,
     "user_name": "",
-    "category": ""
+    "category": "",
+    "asked_questions": []  # List to keep track of asked questions
 }
 
 leaderboard = []
@@ -86,10 +89,12 @@ def start_game():
     if not questions:
         return render_template("error.html", message="No valid questions found for this category. Please try another category.")
 
+    # Reset game state
     game_state["correct_count"] = 0
     game_state["incorrect_count"] = 0
     game_state["round"] = 0
     game_state["skips"] = 0
+    game_state["asked_questions"] = []  # Reset the list of asked questions
     return ask_question()
 
 @app.route("/question")
@@ -108,14 +113,20 @@ def ask_question(message=None, message_type=None):
     if game_state["incorrect_count"] >= 3:
         return render_template("base.html", message="You've lost!", message_type="incorrect", game_over=True, won=False, round=game_state['round'], leaderboard=leaderboard, enumerate=enumerate)
 
-    # Check if the questions list is empty
-    if not questions:
-        return render_template("error.html", message="No valid questions available. Please restart the game.")
+    # Exclude already asked questions
+    available_questions = [q for i, q in enumerate(questions) if i not in game_state["asked_questions"]]
 
-    question = rn.choice(questions)
+    if not available_questions:
+        return render_template("error.html", message="No more questions available. Please restart the game.")
+
+    # Select a new question and track it
+    selected_question = rn.choice(available_questions)
+    selected_index = questions.index(selected_question)
+    game_state["asked_questions"].append(selected_index)
+
     game_state["round"] += 1
 
-    return render_template("base.html", message=message, message_type=message_type, game_over=False, question=question, round=game_state['round'], enumerate=enumerate)
+    return render_template("base.html", message=message, message_type=message_type, game_over=False, question=selected_question, round=game_state['round'], enumerate=enumerate)
 
 @app.route("/answer", methods=["POST"])
 def answer_question():

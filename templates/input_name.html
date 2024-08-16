@@ -8,13 +8,14 @@
 </head>
 <body>
     <div class="name-input-container">
-        <h1>Glowing Five</h1>
-        <img src="{{ url_for('static', filename='logo.jpg')}}" alt="logo">
-        <br>
-        <form action="/" method="post">
-            <input type="text" name="user_name" required placeholder="Enter Your Name to Start">
-            <input type="submit" value="Start Game">
-        </form>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='logo.gif') }}" alt="Background Image">
+            <h1 class="overlay-title">Glowing Five</h1>
+            <form action="/" method="post">
+                <input type="text" name="user_name" required placeholder="Enter Your Name to Start">
+                <input type="submit" value="Start Game">
+            </form>
+        </div>
     </div>
 </body>
 </html>
