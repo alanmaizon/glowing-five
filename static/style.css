@@ -205,7 +205,7 @@ body {
 /* Overlay title styling */
 .overlay-title {
     position: absolute;
-    top:auto;
+    top:25%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2em;
@@ -336,9 +336,15 @@ body {
         align-items: center;
     }
 
-
+    .quiz-container, .category-selection-container, .leaderboard-container{
+        width: 80%;
+    }
 
     .image-container img {
         width: 100%;
 }
+
+    .leaderboard-container table {
+        scale: 70%
+    }
 }
