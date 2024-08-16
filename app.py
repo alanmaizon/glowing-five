@@ -70,7 +70,10 @@ def start_game():
         "Entertainment": "entertainment.csv",
         "Geography": "geography.csv",
         "Comedy": "comedy.csv",
-        "Sports": "sports.csv"
+        "Sports": "sports.csv",
+        "History": "history.csv",
+        "Science": "science.csv",
+        "Food": "food.csv"
     }
 
     # Get the appropriate file based on the selected category

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Game</title>
+    <title>Glowing Five</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='timer.js') }}"></script>
 </head>
@@ -17,6 +17,9 @@
             <p>GAME OVER</p>
             <form action="/restart" method="post">
                 <input type="submit" value="Restart Game">
+            </form>
+            <form action="/leaderboard" method="get">
+                <input type="submit" value="View Leaderboard">
             </form>
         {% else %}
             <h2>{{ question['question'] }}</h2>

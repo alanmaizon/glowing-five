@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="name-input-container">
-        <h1>Glowing 5</h1>
+        <h1>Glowing Five</h1>
+        <img src="{{ url_for('static', filename='logo.jpg')}}" alt="logo">
+        <br>
         <form action="/" method="post">
             <input type="text" name="user_name" required placeholder="Enter Your Name to Start">
             <input type="submit" value="Start Game">
