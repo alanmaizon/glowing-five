@@ -19,6 +19,12 @@ p {
     padding: 20px;
 }
 
+.game {
+    font-size: 5em;
+    font-family:fantasy;
+    text-align: center;
+}
+
 h1 {
     font-family: 'CustomFont', sans-serif; /* Use the font family */
 }
@@ -238,6 +244,7 @@ body {
 }
 
 .name-input-container input[type="submit"] {
+    font-weight: bold;
     padding: 10px 20px;
     border: none;
     background-color: #0d4d8a;

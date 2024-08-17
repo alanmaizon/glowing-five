@@ -15,7 +15,7 @@
         {% endif %}
         {% if game_over %}
             <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
-            <p>GAME OVER</p>
+            <span class="game">GAME OVER</span>
             <form action="/restart" method="post">
                 <input type="submit" value="Restart Game">
             </form>
