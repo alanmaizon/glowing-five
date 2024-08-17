@@ -20,7 +20,8 @@ p {
 }
 
 .game {
-    font-size: 3em;
+    font-family: 'CustomFont';
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
 }
