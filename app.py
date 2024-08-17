@@ -108,10 +108,10 @@ def ask_question(message=None, message_type=None):
             "skips": game_state["skips"]
         })
         leaderboard.sort(key=lambda x: (-x["score"], x["round"]))
-        return render_template("base.html", message="You've won!", message_type="correct", game_over=True, won=True, round=game_state['round'], leaderboard=leaderboard, enumerate=enumerate)
+        return render_template("base.html", message="You've won!", message_type="correct", game_over=True, won=True, round=game_state['round'], leaderboard=leaderboard, enumerate=enumerate, title="Game Over")
     
     if game_state["incorrect_count"] >= 3:
-        return render_template("base.html", message="You've lost!", message_type="incorrect", game_over=True, won=False, round=game_state['round'], leaderboard=leaderboard, enumerate=enumerate)
+        return render_template("base.html", message="You've lost!", message_type="incorrect", game_over=True, won=False, round=game_state['round'], leaderboard=leaderboard, enumerate=enumerate, title="Game Over")
 
     # Exclude already asked questions
     available_questions = [q for i, q in enumerate(questions) if i not in game_state["asked_questions"]]
@@ -124,9 +124,9 @@ def ask_question(message=None, message_type=None):
     selected_index = questions.index(selected_question)
     game_state["asked_questions"].append(selected_index)
 
-    game_state["round"] += 1
+    game_state["round"] += 1 
+    return render_template("base.html", message=message, message_type=message_type, game_over=False, question=selected_question, round=game_state['round'], enumerate=enumerate, title=f"Round {game_state['round']}")
 
-    return render_template("base.html", message=message, message_type=message_type, game_over=False, question=selected_question, round=game_state['round'], enumerate=enumerate)
 
 @app.route("/answer", methods=["POST"])
 def answer_question():
