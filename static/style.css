@@ -10,7 +10,8 @@ body, h1, p, form {
 }
 
 body {
-    background-image: url(background.jpg)
+    background-image: url(back.gif);
+    position: relative;
 }
 
 p {
@@ -220,10 +221,8 @@ body {
     top: 25%; /* Adjust to control overlap with the title */
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 2; /* Ensure it's above the title and image */
     text-align: center;
     justify-content: center;
@@ -246,7 +245,7 @@ body {
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
-    width: 100%;
+    width: fit-content;
 }
 
 .name-input-container input[type="submit"]:hover {
