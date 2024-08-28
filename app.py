@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import random as rn
+from validators import validate_question_format  # Import the validation function
+from exceptions import InvalidQuestionFormatError, InvalidAnswerFormatError  # Import custom exceptions
 
 app = Flask(__name__)
 
@@ -14,22 +16,13 @@ def load_questions(file_name):
                     if not line.strip():
                         continue
                     
-                    reg = line.replace("\n", "").split(";")
-                    
-                    if len(reg) != 6:
-                        print(f"Skipping line {i + 1}: Expected 6 fields, got {len(reg)}")
-                        continue
-                    
                     try:
-                        question = {
-                            "question": reg[0],
-                            "options": reg[1:5],
-                            "answer": int(reg[5])
-                        }
+                        question = validate_question_format(line, i + 1)
                         questions.append(question)
-                    except ValueError as e:
-                        print(f"Error processing line {i + 1}: {e}")
-                        continue
+                    except (InvalidQuestionFormatError, InvalidAnswerFormatError) as e:
+                        print(e)  # Log the exception message
+                        continue  # Skip the invalid question and continue
+                    
             break  # Exit the loop if reading was successful
         except UnicodeDecodeError as e:
             print(f"Encoding {encoding} failed: {e}")
@@ -39,6 +32,7 @@ def load_questions(file_name):
         print(f"Warning: No questions loaded from {file_name}")
 
     return questions
+
 
 # Game state and user information
 game_state = {
