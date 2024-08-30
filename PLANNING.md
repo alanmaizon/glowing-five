@@ -56,13 +56,3 @@
 | Title Not Updating Correctly                       | Title did not reflect the current round or "Game Over".  | Dynamically set the title in `base.html` based on the game state passed from Flask.                                    | Resolved      |
 | Error Handling for Invalid CSV Format              | Application crashed on encountering invalid CSV format.  | Added validation and error handling to log and skip malformed lines in CSV files.                                      | In Progress   |
 | Layout Issues on Mobile Devices                    | Layout not fully responsive on smaller screens.          | Applied CSS media queries and tested with different devices to ensure responsiveness.                                  | In Progress   |
-
----
-
-#### 5. **Next Steps**
-
-1. **Complete Error Handling**: Finalize and test all error handling scenarios to ensure graceful failure and user-friendly messages.
-2. **Enhance Responsiveness**: Improve the mobile and tablet views for all screens to ensure a consistent user experience.
-3. **Add More Categories**: Extend the question pool by adding more categories and corresponding CSV files.
-4. **Implement User Authentication**: Add optional user authentication to keep track of scores across sessions.
-5. **Optimize Performance**: Refactor and optimize the code to handle larger datasets efficiently.
