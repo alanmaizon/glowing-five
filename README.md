@@ -35,8 +35,8 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/quiz-game.git
-   cd quiz-game
+   git clone https://github.com/alanmaizon/glowing-five.git
+   cd glowing-five
    ```
 
 2. Install required Python packages:
