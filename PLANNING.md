@@ -66,9 +66,3 @@
 3. **Add More Categories**: Extend the question pool by adding more categories and corresponding CSV files.
 4. **Implement User Authentication**: Add optional user authentication to keep track of scores across sessions.
 5. **Optimize Performance**: Refactor and optimize the code to handle larger datasets efficiently.
-
----
-
-### Conclusion
-
-The planning and analysis sheet provides an organized overview of the project's functionalities, testing status, and debugging efforts. It serves as a guide to complete remaining tasks and ensure a robust, user-friendly application.
