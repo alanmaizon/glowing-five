@@ -75,10 +75,26 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 ## File Structure
 
 ```
-quiz-game/
+glowing-five/
 │
 ├── app.py                # Main Flask application
-├── questions.csv         # CSV file containing questions (place in the same directory)
+├── modules.py            # Functions to create and edit CSV files
+├── setup.py              # Setup for Win32
+├── static/
+│   ├── css/
+│   │   └── style.css     # Stylesheet for the app
+│   ├── js/
+│   │   └── timer.js      # JavaScript for frontend interactivity
+│   ├── img/
+│   │   └── logo.gif      # Main logo
+│   ├── csv/
+│   │   └── comedy.csv    # Main logo
+├── templates/
+│   └── base.html         # Main HTML template
+│   └── categories.html   # Main HTML template
+│   └── error.html        # Main HTML template
+│   └── input_name.html   # Main HTML template
+│   └── leaderboard.html  # Main HTML template
 └── README.md             # This README file
 ```
 

@@ -64,13 +64,13 @@ def select_category():
 @app.route("/start_game")
 def start_game():
     category_files = {
-        "Entertainment": "entertainment.csv",
-        "Geography": "geography.csv",
-        "Comedy": "comedy.csv",
-        "Sports": "sports.csv",
-        "History": "history.csv",
-        "Science": "science.csv",
-        "Food": "food.csv"
+        "Entertainment": "static/csv/entertainment.csv",
+        "Geography": "static/csv/geography.csv",
+        "Comedy": "static/csv/comedy.csv",
+        "Sports": "static/csv/sports.csv",
+        "History": "static/csv/history.csv",
+        "Science": "static/csv/science.csv",
+        "Food": "static/csv/food.csv"
     }
 
     # Get the appropriate file based on the selected category
@@ -148,7 +148,7 @@ def skip_question():
 
 @app.route("/restart", methods=["POST"])
 def restart_game():
-    return redirect(url_for("input_name"))
+    return redirect(url_for("select_category"))
 
 @app.route("/leaderboard")
 def show_leaderboard():

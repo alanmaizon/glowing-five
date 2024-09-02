@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="{{ url_for('static', filename='timer.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
 </head>
 <body>
     <div id="quiz-container" class="quiz-container {{ 'shake' if message_type == 'incorrect' else '' }}">
@@ -17,7 +17,7 @@
             <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
             <span class="game">GAME OVER</span>
             <form action="/restart" method="post">
-                <input type="submit" value="Restart Game">
+                <input type="submit" value="Play again">
             </form>
             <form action="/leaderboard" method="get">
                 <input type="submit" value="View Leaderboard">

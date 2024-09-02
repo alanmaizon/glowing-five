@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'CustomFont'; /* Name your font family */
-    src: url('nasalization-rg.otf'); /* Locate the .ttf file within your directory*/
+    font-family: 'CustomFont'; 
+    src: url('American Captain.otf'); 
 }
 
 body, h1, p, form {
@@ -10,7 +10,7 @@ body, h1, p, form {
 }
 
 body {
-    background-image: url(back.gif);
+    background-image: url(../img/back.gif);
     position: relative;
 }
 
@@ -21,20 +21,22 @@ p {
 
 .game {
     font-family: 'CustomFont';
-    font-size: 2em;
+    font-size: 6em;
     font-weight: bold;
     text-align: center;
 }
 
 h1 {
-    font-family: 'CustomFont', sans-serif; /* Use the font family */
+    font-family: 'CustomFont', sans-serif;
+    letter-spacing: 0.05em;
+    text-shadow: #000;
 }
 
 h2 {
     text-align: center;
     margin: 40px 0;
 }
-/* Ensure full-height and center the content */
+
 body {
     display: flex;
     flex-direction: column;
