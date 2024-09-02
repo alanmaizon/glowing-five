@@ -80,8 +80,8 @@ glowing-five/
 ├── app.py                # Main Flask application
 ├── modules.py            # Functions to create and edit CSV files
 ├── setup.py              # Setup for Win32
-├── validators.py         # Functions to validate user interaction
-├── exceptions.py         # Debugging tools to handle exceptions
+├── exceptions.py         # Functions to validate user interaction
+├── validators.py         # Debugging tools to handle exceptions
 ├── static/
 │   ├── css/
 │   │   └── style.css     # Stylesheet for the app
