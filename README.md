@@ -90,7 +90,7 @@ glowing-five/
 │   ├── img/
 │   │   └── logo.gif      # Main logo
 │   ├── csv/
-│   │   └── comedy.csv    # Main logo
+│   │   └── comedy.csv    # Quiz files
 ├── templates/
 │   └── base.html         # Main HTML template
 │   └── categories.html   # Main HTML template
