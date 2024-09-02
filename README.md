@@ -107,25 +107,17 @@ Testing was conducted manually by running the Flask application and performing t
 
 Several issues were identified and addressed during development:
 
-1. **Issue:** 
-   - Incorrect display of questions and options.
-   - **Solution:** 
-     - Ensured that the CSV file is read and parsed correctly, and that the HTML template receives the correct data structure.
+1. **Incorrect display of questions and options** 
+   - Ensured that the CSV file is read and parsed correctly, and that the HTML template receives the correct data structure.
 
-2. **Issue:** 
-   - Game not resetting correctly after a win/loss.
-   - **Solution:** 
-     - Added initialization of game state variables (`correct_count`, `incorrect_count`, `round`) in the `start_game` function.
+2. **Game not resetting correctly after a win/loss** 
+   - Added initialization of game state variables (`correct_count`, `incorrect_count`, `round`) in the `start_game` function.
 
-3. **Issue:** 
-   - Form submission not correctly identifying the selected option.
-   - **Solution:** 
-     - Adjusted the HTML form to ensure that the selected option is passed correctly as a POST parameter.
+3. **Form submission not correctly identifying the selected option.** 
+   - Adjusted the HTML form to ensure that the selected option is passed correctly as a POST parameter.
 
-4. **Issue:** 
-   - Incorrect game state tracking after form submission.
-   - **Solution:** 
-     - Verified the logic for updating the `correct_count` and `incorrect_count` to ensure the game progresses as expected.
+4. **Incorrect game state tracking after form submission.** 
+   - Verified the logic for updating the `correct_count` and `incorrect_count` to ensure the game progresses as expected.
 
 ## Contributing
 
