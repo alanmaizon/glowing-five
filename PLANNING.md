@@ -1,6 +1,7 @@
 ### Planning and Analysis Sheet
 
-![Glowing5Demo](demo.png)  ![Glowing5Demo](demo2.png)
+![Glowing5Demo](static/img/demo4.png)   ![Glowing5Demo](static/img/demo.png)
+![Glowing5Demo](static/img/demo2.png)  ![Glowing5Demo](static/img/demo3.png)
 
 #### 1. **Project Overview**
 

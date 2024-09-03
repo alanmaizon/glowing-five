@@ -48,7 +48,7 @@ def process_csv(input_file: str, output_file: str):
             # Extract question, correct answer, incorrect answers, and the original position
             question = row[0]
             correct_answer = row[1]
-            incorrect_answers = row[2:len(row) - 1]
+            incorrect_answers = row[2:- 1]
             original_position = int(row[-1])
 
             # Combine all answers
