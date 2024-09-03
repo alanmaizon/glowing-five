@@ -1,6 +1,6 @@
 # Trivia Game - Glowing Five
 
-💎
+# 💎
 
 ## Table of Contents
 
