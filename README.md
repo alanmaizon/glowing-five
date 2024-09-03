@@ -1,5 +1,7 @@
 # Trivia Game - Glowing Five
 
+💎
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
