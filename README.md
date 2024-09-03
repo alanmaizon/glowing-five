@@ -1,6 +1,6 @@
-# Trivia Game - Glowing Five
+# Glowing 5 💎
 
-# 💎
+# Quiz game - Single player trivia
 
 ## Table of Contents
 
