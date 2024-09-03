@@ -93,10 +93,10 @@ glowing-five/
 │   │   └── comedy.csv    # Quiz files
 ├── templates/
 │   └── base.html         # Main HTML template
-│   └── categories.html   # Main HTML template
-│   └── error.html        # Main HTML template
-│   └── input_name.html   # Main HTML template
-│   └── leaderboard.html  # Main HTML template
+│   └── categories.html   # Select category HTML template
+│   └── error.html        # Error HTML template
+│   └── input_name.html   # Start input form HTML template
+│   └── leaderboard.html  # Rank leader board HTML template
 └── README.md             # This README file
 ```
 

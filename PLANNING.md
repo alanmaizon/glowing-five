@@ -1,5 +1,7 @@
 ### Planning and Analysis Sheet
 
+![Glowing5Demo](demo.png)  ![Glowing5Demo](demo2.png)
+
 #### 1. **Project Overview**
 
 | Item              | Description                                                                 |
