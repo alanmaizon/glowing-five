@@ -1,6 +1,8 @@
-# Glowing 5 💎
+# Glowing 5 💎 Single player trivia
 
-# Quiz game - Single player trivia
+# Module 3 - Python
+
+## UCD Professional Academy
 
 ## Table of Contents
 
