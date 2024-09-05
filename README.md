@@ -70,7 +70,7 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 ## Usage
 
 - When you start the game, the first question will be displayed.
-- Select the correct answer by clicking on the radio button and submit it.
+- Select the correct answer by clicking the related button.
 - The game will display whether your answer is correct or incorrect.
 - The game continues until you either answer 5 questions correctly or get 3 incorrect answers.
 
@@ -80,6 +80,7 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 glowing-five/
 │
 ├── app.py                # Main Flask application
+├── models.py             # Relevant models and utility functions
 ├── modules.py            # Functions to create and edit CSV files
 ├── setup.py              # Setup for Win32
 ├── exceptions.py         # Functions to validate user interaction

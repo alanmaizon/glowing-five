@@ -1,51 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
-import random as rn
-from validators import validate_question_format  # Import the validation function
-from exceptions import InvalidQuestionFormatError, InvalidAnswerFormatError  # Import custom exceptions
+from models import game_state, leaderboard, load_questions, select_random_question
 
 app = Flask(__name__)
-
-def load_questions(file_name):
-    questions = []
-    encodings = ["utf-8", "latin-1"]
-
-    for encoding in encodings:
-        try:
-            with open(file_name, "r", encoding=encoding) as f:
-                for i, line in enumerate(f.readlines()):
-                    if not line.strip():
-                        continue
-                    
-                    try:
-                        question = validate_question_format(line, i + 1)
-                        questions.append(question)
-                    except (InvalidQuestionFormatError, InvalidAnswerFormatError) as e:
-                        print(e)  # Log the exception message
-                        continue  # Skip the invalid question and continue
-                    
-            break  # Exit the loop if reading was successful
-        except UnicodeDecodeError as e:
-            print(f"Encoding {encoding} failed: {e}")
-            continue  # Try the next encoding if the current one fails
-
-    if not questions:
-        print(f"Warning: No questions loaded from {file_name}")
-
-    return questions
-
-
-# Game state and user information
-game_state = {
-    "correct_count": 0,
-    "incorrect_count": 0,
-    "round": 0,
-    "skips": 0,
-    "user_name": "",
-    "category": "",
-    "asked_questions": []  # List to keep track of asked questions
-}
-
-leaderboard = []
 
 @app.route("/", methods=["GET", "POST"])
 def input_name():
@@ -105,30 +61,27 @@ def ask_question(message=None, message_type=None):
         leaderboard.sort(key=lambda x: (-x["score"], x["round"]))
         return render_template("base.html", message=f"You've {result}!", message_type=result, game_over=True, won=(result == "won"), round=game_state['round'], leaderboard=leaderboard, enumerate=enumerate, title="Game Over")
 
-    available_questions = [q for i, q in enumerate(questions) if i not in game_state["asked_questions"]]
+    selected_question = select_random_question(questions, game_state["asked_questions"])
 
-    if not available_questions:
+    if not selected_question:
         return render_template("error.html", message="No more questions available. Please restart the game.")
 
-    selected_question = rn.choice(available_questions)
-    game_state["asked_questions"].append(questions.index(selected_question))
     game_state["round"] += 1
 
     return render_template("base.html", message=message, message_type=message_type, game_over=False, question=selected_question, round=game_state['round'], enumerate=enumerate, title=f"Round {game_state['round']}")
 
 @app.route("/answer", methods=["POST"])
 def answer_question():
-    selected_option = request.form.get("option")
+    selected_option_text = request.form.get("selected_option")
     correct_answer = int(request.form["correct_answer"])
     correct_answer_text = request.form["correct_answer_text"]
 
-    if selected_option is None:
+    if selected_option_text is None:
         game_state["incorrect_count"] += 1
         return ask_question(message=f"Time's up! The correct answer was '{correct_answer_text}'", message_type="timeout")
 
-    selected_option = int(selected_option)
-
-    if selected_option == correct_answer:
+    # Compare the text of the selected option to the correct answer text
+    if selected_option_text == correct_answer_text:
         game_state["correct_count"] += 1
         return ask_question(message="Correct!", message_type="correct")
     else:

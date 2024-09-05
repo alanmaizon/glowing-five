@@ -11,7 +11,7 @@
 <body>
     <div id="quiz-container" class="quiz-container {{ 'shake' if message_type == 'incorrect' else '' }}">
         {% if message %}
-            <h2 class="message {{ message_type }}">{{ message }}</h2>
+            <p class="message {{ message_type }}">{{ message }}</p>
         {% endif %}
         {% if game_over %}
             <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
@@ -23,17 +23,15 @@
                 <input type="submit" value="View Leaderboard">
             </form>
         {% else %}
-            <h2>{{ question['question'] }}</h2>
-            <p>Time left: <span id="timer">15</span> seconds</p>
+            <h3>{{ question['question'] }}</h3>
             <form id="quiz-form" action="/answer" method="post">
                 <input type="hidden" name="correct_answer" value="{{ question['answer'] }}">
                 <input type="hidden" name="correct_answer_text" value="{{ question['options'][question['answer']-1] }}">
+                
                 {% for i, option in enumerate(question['options'], 1) %}
-                    <label>
-                        <input type="radio" name="option" value="{{ i }}"> {{ option }}
-                    </label><br>
+                    <input type="submit" name="selected_option" value="{{ option }}">
                 {% endfor %}
-                <input type="submit" value="Submit">
+            <p>Time left: <span id="timer">15</span> seconds</p>
             </form>
             <form action="/skip" method="post">
                 <input type="submit" value="Skip Question" class="skip-button">

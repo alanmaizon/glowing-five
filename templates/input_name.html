@@ -6,6 +6,8 @@
     <title>Glowing Five</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="name-input-container">
@@ -14,9 +16,46 @@
             <h1 class="overlay-title">Glowing Five</h1>
             <form action="/" method="post">
                 <input type="text" name="user_name" required placeholder="Enter Your Name to Start">
-                <input type="submit" value="Start">
+                <input type="submit" value="START GAME">
             </form>
         </div>
+        <div class="instructionsButton"><button id="instructionsButton" class="btn btn-info">How to Play</button></div>
     </div>
+    
+
+    <!-- The Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h1>Welcome to glowing 5!</h1>
+            <p>Here's how to play:</p>
+            <ul>
+                <li>Answer multiple-choice questions correctly to score points.</li>
+                <li>You need to answer 5 questions correctly to win.</li>
+                <li>If you answer 3 questions incorrectly, or run out of time, you lose.</li>
+                <li>Out of 4 options only 1 is correct, you can skip questions.</li>
+                <li>Feel free to restart from the beginning at any time.</li>
+                <li>Check your score on the leaderboard.</li>
+            </ul>
+            <p>Good luck! Share with friends and have fun!</p>
+            
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/alanmaizon/glowing-five" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repository
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20cool%20quiz%20game!%20{{request.url_root}}" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Optional Bootstrap and JS for Modal functionality -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/modal.js') }}"></script>
 </body>
 </html>
