@@ -10,10 +10,12 @@
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [File Structure](#file-structure)
-6. [Testing and Debugging Report](#testing-and-debugging-report)
-7. [Contributing](#contributing)
-8. [License](#license)
+5. [Flow Chart](#flow-chart)
+6. [File Structure](#file-structure)
+7. [Testing](#testing)
+8. [Debugging](#debugging)
+9. [Contributing](#contributing)
+10. [License](#license)
 
 ## Introduction
 
@@ -76,7 +78,8 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 - The game will display whether your answer is correct or incorrect.
 - The game continues until you either answer 5 questions correctly or get 3 incorrect answers.
 
-## File Structure
+## Flow Chart
+
 ```mermaid
 graph TD
     A[User Enters Name] --> B[Select Category]
@@ -107,6 +110,8 @@ graph TD
     P --> B
 ```
 
+## File Structure
+
 ```
 glowing-five/
 │
@@ -134,9 +139,22 @@ glowing-five/
 └── README.md             # This README file
 ```
 
-## Testing and Debugging Report
+## Testing
 
-### Testing
+| **Test Case**                                  | **Description**                                                                                 | **Expected Outcome**                                                       | **Status**        |
+|------------------------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|-------------------|
+| User Registration Test                         | Enter different names and start the game.                                                       | Game starts with the provided user name.                                   | Passed            |
+| Category Selection Test                        | Select different categories (Entertainment, Geography, Comedy).                                  | Correct questions load based on the selected category.                     | Passed            |
+| Question Loading and Encoding Test             | Ensure all questions are loaded correctly from various CSV files.                                | No `UnicodeDecodeError` or missing question issues.                        | Passed            |
+| Non-Repeating Question Test                    | Ensure no question is repeated in a single game session.                                         | Questions are unique within each session.                                  | Passed            |
+| Dynamic Title Update Test                      | Check if the title shows the correct round number or "Game Over."                                 | Title updates correctly as per the game state.                             | Passed            |
+| Score Tracking and Game Over Test              | Complete the game to verify score, round count, and win/loss conditions.                         | Scores and results display correctly on game completion.                   | Passed            |
+| View Leaderboard Test                          | Click "View Leaderboard" after the game ends.                                                    | Leaderboard displays correctly with updated scores.                        | Passed            |
+| Restart Game Test                              | Click "Restart Game" after the game ends.                                                        | Game resets properly, and the user is prompted to enter their name again.   | Passed            |
+| Error Handling Test                            | Force errors (e.g., missing file, invalid CSV format) and observe behavior.                      | Graceful error messages displayed, no app crash.                           | In Progress       |
+| Responsive Design Test                         | Test on different devices (desktop, tablet, mobile) and screen sizes.                            | Application is fully responsive, no layout issues.                         | In Progress       |
+
+---
 
 Testing was conducted manually by running the Flask application and performing the following actions:
 
@@ -155,7 +173,19 @@ Testing was conducted manually by running the Flask application and performing t
    - Ensured that the correct and incorrect results are displayed immediately after submission.
    - Verified that the form resets for the next question.
 
-### Debugging
+## Debugging
+
+| **Issue**                                         | **Cause**                                                | **Solution Implemented**                                                                                             | **Status**    |
+|---------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------|
+| UnicodeDecodeError: 'utf-8' codec can't decode... | CSV files have characters not encoded in `utf-8`.        | Modified `load_questions` function to try different encodings (`utf-8` and `latin-1`).                                | Resolved      |
+| IndexError: list index out of range                | Malformed CSV data or empty lines.                       | Added validation to check the number of fields in each line before processing.                                         | Resolved      |
+| IndexError: Cannot choose from an empty sequence   | No questions available due to all questions being asked. | Added logic to check if any questions remain before selecting one.                                                     | Resolved      |
+| Repeating Questions                                | Questions were repeated within a single game session.    | Implemented a mechanism to track and exclude asked questions from being selected again.                                | Resolved      |
+| Title Not Updating Correctly                       | Title did not reflect the current round or "Game Over".  | Dynamically set the title in `base.html` based on the game state passed from Flask.                                    | Resolved      |
+| Error Handling for Invalid CSV Format              | Application crashed on encountering invalid CSV format.  | Added validation and error handling to log and skip malformed lines in CSV files.                                      | In Progress   |
+| Layout Issues on Mobile Devices                    | Layout not fully responsive on smaller screens.          | Applied CSS media queries and tested with different devices to ensure responsiveness.                                  | In Progress   |
+
+---
 
 Several issues were identified and addressed during development:
 
