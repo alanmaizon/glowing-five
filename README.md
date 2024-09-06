@@ -130,27 +130,23 @@ graph TD
 ```
 glowing-five/
 │
-├── app.py                # Main Flask application
-├── models.py             # Relevant models and utility functions
-├── modules.py            # Functions to create and edit CSV files
-├── setup.py              # Setup for Win32
-├── exceptions.py         # Functions to validate user interaction
-├── validators.py         # Debugging tools to handle exceptions
+├── app.py                # Main Flask application, handles routes and game logic
+├── models.py             # Models for game state, leaderboard, and utility functions like question loading
+├── modules.py            # Functions to manage CSV file creation, editing, and manipulation
+├── setup.py              # Setup script for configuring the application on Win32 systems
+├── exceptions.py         # Custom exception classes for handling errors in game logic and user input
+├── validators.py         # Validation functions for checking question formats and user input
 ├── static/
-│   ├── css/
-│   │   └── style.css     # Stylesheet for the app
-│   ├── js/
-│   │   └── timer.js      # JavaScript for frontend interactivity
-│   ├── img/
-│   │   └── logo.gif      # Main logo
-│   ├── csv/
-│   │   └── comedy.csv    # Quiz files
+│   ├── css/              # Stylesheets for styling the app's frontend
+│   ├── js/               # JavaScript files for handling frontend interactivity
+│   ├── img/              # Directory for storing image assets, including the main logo
+│   ├── csv/              # Directory containing quiz CSV files for different categories
 ├── templates/
-│   └── base.html         # Main HTML template
-│   └── categories.html   # Select category HTML template
-│   └── error.html        # Error HTML template
-│   └── input_name.html   # Start input form HTML template
-│   └── leaderboard.html  # Rank leader board HTML template
+│   └── base.html         # Base template for the overall layout and structure of the app
+│   └── categories.html   # Template for selecting quiz categories
+│   └── error.html        # Template for displaying error messages (e.g., no questions available)
+│   └── input_name.html   # Template for inputting the user's name to start the game
+│   └── leaderboard.html  # Template for displaying the leaderboard and scores
 └── README.md             # This README file
 ```
 
