@@ -6,6 +6,9 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 
 ## UCD Professional Academy
 
+![Glowing5Demo](static/img/demo4.png)   ![Glowing5Demo](static/img/demo.png)
+![Glowing5Demo](static/img/demo2.png)  ![Glowing5Demo](static/img/demo3.png)
+
 ## Table of Contents
 
 1. [Functionalities](#functionalities)
