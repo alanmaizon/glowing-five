@@ -1,12 +1,14 @@
 # Glowing 5 💎 Single player trivia
 
+This is a web-based quiz game built using Python and the Flask web framework. The game loads questions from a CSV file and presents them to the player one at a time. The player wins by correctly answering 5 questions before making 3 incorrect attempts.
+
 # Module 3 - Python
 
 ## UCD Professional Academy
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
+1. [Functionalities](#functionalities)
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
@@ -17,9 +19,22 @@
 9. [Contributing](#contributing)
 10. [License](#license)
 
-## Introduction
+## Funtionalities
 
-This is a web-based quiz game built using Python and the Flask web framework. The game loads questions from a CSV file and presents them to the player one at a time. The player wins by correctly answering 5 questions before making 3 incorrect attempts.
+| **Functionality**         | **Description**                                                                                                 | **Status**      | **Priority** |
+|---------------------------|----------------------------------------------------------------------------------------------------------------|-----------------|--------------|
+| User Registration         | Users can enter their name before starting the game.                                                           | Completed       | High         |
+| Category Selection        | Users can choose from a list of categories (e.g., Entertainment, Geography, Comedy) before the quiz starts.     | Completed       | High         |
+| Question Loading          | Load questions from different CSV files based on the selected category.                                         | Completed       | High         |
+| Non-Repeating Questions   | Ensure that questions are not repeated within a single game session.                                            | Completed       | High         |
+| Dynamic Title Updates     | Update the HTML title to show the current round or "Game Over" when the game ends.                              | Completed       | Medium       |
+| Score Tracking            | Track the user's score, round, and number of skips per game session.                                            | Completed       | High         |
+| Leaderboard Display       | Display the leaderboard with user names, scores, and categories.                                                | Completed       | Medium       |
+| Restart Game              | Allow users to restart the game after it ends.                                                                  | Completed       | High         |
+| View Leaderboard          | Provide a button to view the leaderboard when the game is over.                                                 | Completed       | Medium       |
+| Error Handling            | Gracefully handle errors (e.g., file reading issues, empty question lists).                                     | In Progress     | High         |
+| Responsive Design         | Ensure the application is fully responsive and works well on different devices.                                 | In Progress     | Low          |
+
 
 ## Features
 
