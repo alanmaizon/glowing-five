@@ -3,7 +3,7 @@
 This is a web-based quiz game built using Python and the Flask web framework. The game loads questions from a CSV file and presents them to the player one at a time. The player wins by correctly answering 5 questions before making 3 incorrect attempts.
 
 ## Deployement
-You can access a live version of the application that is fully functional and accessible: [Glowing Five](https://glowing-5.onrender.com)
+You can access a live version of the application that is fully functional and accessible: [Live Demo on Render](https://glowing-5.onrender.com)
 
 Click the link to explore the quiz game and test it live!
 
