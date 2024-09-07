@@ -70,7 +70,7 @@ Click the link to explore the quiz game and test it live!
    pip install Flask
    ```
 
-3. You can either create or modify the CSV files and add them to the dict 'category_files' in `app.py`. The CSV file should follow this structure:
+3. You can either create or modify the CSV files. The CSV file should follow this structure:
 
    ```
    Question;Option1;Option2;Option3;Option4;CorrectAnswerIndex
