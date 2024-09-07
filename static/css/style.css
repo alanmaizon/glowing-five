@@ -266,19 +266,56 @@ body {
     z-index: 1; /* Ensure it's above the image */
 }
 
-/* Name input container styling */
+/* Align form and buttons */
 .name-input-container {
-    position: absolute;
-    top: 25%; /* Adjust to control overlap with the title */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 2; /* Ensure it's above the title and image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
+}
+
+.image-container {
+    position: relative;
+}
+
+.form-inline {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px; /* Space between the input field and buttons */
+}
+
+.start-game-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.help-btn {
+    background-color: #17a2b8;
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-btn:hover {
+    background-color: #138496;
+}
+
 
 .name-input-container input[type="text"] {
     padding: 10px;
@@ -403,4 +440,9 @@ body {
     .leaderboard-container table {
         scale: 70%
     }
+
+    .modal-content {
+        scale: 70%;
+    }
+    
 }

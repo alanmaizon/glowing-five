@@ -2,19 +2,20 @@
 
 This is a web-based quiz game built using Python and the Flask web framework. The game loads questions from a CSV file and presents them to the player one at a time. The player wins by correctly answering 5 questions before making 3 incorrect attempts.
 
-# Module 3 - Python
+## Live Demo
+You can access the live version of the application here: [Glowing Five](https://glowing-5.onrender.com)
 
-## UCD Professional Academy
+Click the link to explore the quiz game and test it live!
 
-![Glowing5Demo](static/img/demo4.png)   ![Glowing5Demo](static/img/demo.png)
-![Glowing5Demo](static/img/demo2.png)  ![Glowing5Demo](static/img/demo3.png)
+![Glowing5Demo](static/img/mockup.png)
+
 
 ## Table of Contents
 
 1. [Functionalities](#functionalities)
 2. [Features](#features)
 3. [Installation](#installation)
-4. [Usage](#usage)
+4. [How to Play?](#how-to-play?)
 5. [Flow Chart](#flow-chart)
 6. [File Structure](#file-structure)
 7. [Testing](#testing)
@@ -89,7 +90,7 @@ This is a web-based quiz game built using Python and the Flask web framework. Th
 
 5. Open a web browser and navigate to `http://127.0.0.1:5000/` to start playing the game.
 
-## Usage
+## How to Play
 
 - When you start the game, the first question will be displayed.
 - Select the correct answer by clicking the related button.
@@ -222,3 +223,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+### Module 3 - Python - UCD Professional Academy
