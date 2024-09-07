@@ -1,3 +1,5 @@
+//Module 3 - Python - UCD Professional Academy - Alan Maizon
+
 document.addEventListener("DOMContentLoaded", function() {
     var timeLeft = 15;
     var timerInterval = setInterval(function() {

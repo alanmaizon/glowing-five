@@ -1,3 +1,5 @@
+# Module 3 - Python - UCD Professional Academy - Alan Maizon
+
 from flask import Flask, request, render_template, redirect, url_for
 from models import game_state, leaderboard, load_questions, select_random_question
 

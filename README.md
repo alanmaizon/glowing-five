@@ -70,7 +70,7 @@ Click the link to explore the quiz game and test it live!
    pip install Flask
    ```
 
-3. Place your CSV file with questions in the same directory as `app.py`. The CSV file should follow this structure:
+3. You can either create or modify the CSV files and add them to the dict 'category_files' in `app.py`. The CSV file should follow this structure:
 
    ```
    Question;Option1;Option2;Option3;Option4;CorrectAnswerIndex
@@ -93,7 +93,7 @@ Click the link to explore the quiz game and test it live!
 ## How to Play
 
 - When you start the game, the first question will be displayed.
-- Select the correct answer by clicking the related button.
+- Out of 4 options only 1 is correct, you can skip questions.
 - The game will display whether your answer is correct or incorrect.
 - The game continues until you either answer 5 questions correctly or get 3 incorrect answers.
 
@@ -226,4 +226,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-### Module 3 - Python - UCD Professional Academy
+### Module 3 - Python - UCD Professional Academy - Alan Maizon

@@ -1,3 +1,5 @@
+# Module 3 - Python - UCD Professional Academy - Alan Maizon
+
 import sys
 from setuptools import setup
 
