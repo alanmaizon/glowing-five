@@ -164,7 +164,7 @@ body {
 
 /* Form for options */
 .quiz-container form {
-    width: 100%;
+    height: 90hv;
 }
 
 .quiz-container input[type="radio"] {
@@ -207,20 +207,33 @@ body {
 }
 
 .leaderboard-container table {
-    width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: block;
+    border: 2px solid #000;
 }
 
-.leaderboard-container th, .leaderboard-container td {
+.leaderboard-container th{
     padding: 10px;
-    border: 1px solid #ddd;
     text-align: center;
+    white-space: nowrap;
+}
+
+.leaderboard-container td {
+    padding: 10px;
+    border: 2px solid #ddd;
+    text-align: center;
+    white-space: nowrap; 
 }
 
 .leaderboard-container th {
     background-color: #f4f4f4;
     font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .leaderboard-container input[type="submit"] {
