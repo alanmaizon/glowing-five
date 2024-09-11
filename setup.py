@@ -5,8 +5,7 @@ from setuptools import setup
 
 install_requires = [
     'Flask==2.0.2',
-    'Flask-SocketIO==5.1.1',
-    # other dependencies...
+    'gunicorn==20.1.0'
 ]
 
 if sys.platform == 'win32':
