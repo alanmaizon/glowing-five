@@ -4,8 +4,8 @@ import sys
 from setuptools import setup
 
 install_requires = [
-    'Flask==2.0.2',
-    'gunicorn==20.1.0'
+    'Flask==2.0.2'
+    # other dependencies...
 ]
 
 if sys.platform == 'win32':
@@ -14,5 +14,6 @@ if sys.platform == 'win32':
 setup(
     name='glowing-five',
     version='1.0',
-    install_requires=install_requires
+    install_requires=install_requires,
+    # other setup options...
 )
