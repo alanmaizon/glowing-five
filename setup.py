@@ -12,9 +12,8 @@ if sys.platform == 'win32':
     install_requires.append('pywin32==306')
 
 setup(
-    name='flask-chat-app',
+    name='glowing-five',
     version='1.0',
-    install_requires=install_requires,
-    # other setup options...
+    install_requires=install_requires
 )
 
