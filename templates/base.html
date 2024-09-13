@@ -12,7 +12,7 @@
 <body>
     <div id="quiz-container" class="quiz-container {{ 'shake' if message_type == 'incorrect' else '' }}">
         {% if message %}
-            <p class="message {{ message_type }}">{{ message }}</p>
+            <p class="message {{ message_type }}">{{ message }}</p><br>
         {% endif %}
         {% if game_over %}
             <h1>You've {{ 'won' if won else 'lost' }} in round {{ round }}</h1>
