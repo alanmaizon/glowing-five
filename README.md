@@ -1,13 +1,13 @@
-# Quiz Master
+# Quiz Masters
 
 This is a web-based quiz game built using Python and the Flask web framework. The game loads questions from a CSV file and presents them to the player one at a time. The player wins by correctly answering 5 questions before making 3 incorrect attempts.
 
 ## Deployment
-You can access a live version of the application that is fully functional: [On Render](https://glowing-5.onrender.com)
+You can access a live version of the application that is fully functional: [On Render](https://quizmasters.onrender.com)
 
 Click the link to explore the quiz game and test it live!
 
-![Glowing5Demo](static/img/mockup.png)
+![QuizMastersDemo](static/img/mockup.png)
 
 
 ## Table of Contents
@@ -60,8 +60,8 @@ Click the link to explore the quiz game and test it live!
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/alanmaizon/glowing-five.git
-   cd glowing-five
+   git clone https://github.com/alanmaizon/quizmasters.git
+   cd quizmasters
    ```
 
 2. Install required Python packages:
