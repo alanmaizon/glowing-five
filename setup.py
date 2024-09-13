@@ -12,7 +12,7 @@ if sys.platform == 'win32':
     install_requires.append('pywin32==306')
 
 setup(
-    name='glowing-five',
+    name='quiz-master',
     version='1.0',
     install_requires=install_requires,
     # other setup options...
