@@ -13,7 +13,7 @@ if sys.platform == 'win32':
     install_requires.append('pywin32==306')
 
 setup(
-    name='quiz-master',
+    name='quizmasters',
     version='1.0',
     install_requires=install_requires,
 )
