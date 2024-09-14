@@ -7,6 +7,7 @@ You can access a live version of the application that is fully functional: [On R
 
 Click the link to explore the quiz game and test it live!
 
+![QuizMastersDemo](static/img/mockup-phone.png)
 ![QuizMastersDemo](static/img/mockup.png)
 
 
