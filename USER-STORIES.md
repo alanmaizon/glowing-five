@@ -1,4 +1,4 @@
-# User Stories for **Glowing Five**
+# User Stories for **Quiz Masters**
 
 ### User Registration and Game Start
 **As a** user,  
