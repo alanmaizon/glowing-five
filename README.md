@@ -133,7 +133,7 @@ graph TD
 ## File Structure
 
 ```
-glowing-five/
+quizmasters/
 │
 ├── app.py                # Main Flask application, handles routes and game logic
 ├── models.py             # Models for game state, leaderboard, and utility functions like question loading
